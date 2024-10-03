@@ -1,35 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.bean;
 
 import javafx.scene.chart.PieChart.Data;
 
-/**
- *
- * @author Senai
- */
 public class Professor {
     
     public int id_professor;
-    public String nome,matricula,senha,cpf,imagens;
-    public int area_id;
-    public Data admissao;
+    public String nome,sobrenome,senha,cpf,imagens;
 
     public Professor() {
     }
 
-    public Professor(int id_professor, String nome, String matricula, String senha, String cpf, String imagens, int area_id, Data admissao) {
+    public Professor(int id_professor, String nome, String sobrenome, String senha, String cpf, String imagens) {
         this.id_professor = id_professor;
         this.nome = nome;
-        this.matricula = matricula;
+        this.sobrenome = sobrenome;
         this.senha = senha;
         this.cpf = cpf;
         this.imagens = imagens;
-        this.area_id = area_id;
-        this.admissao = admissao;
     }
 
     public int getId_professor() {
@@ -48,12 +35,12 @@ public class Professor {
         this.nome = nome;
     }
 
-    public String getMatricula() {
-        return matricula;
+    public String getSobrenome() {
+        return sobrenome;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
     public String getSenha() {
@@ -78,22 +65,6 @@ public class Professor {
 
     public void setImagens(String imagens) {
         this.imagens = imagens;
-    }
-
-    public int getArea_id() {
-        return area_id;
-    }
-
-    public void setArea_id(int area_id) {
-        this.area_id = area_id;
-    }
-
-    public Data getAdmissao() {
-        return admissao;
-    }
-
-    public void setAdmissao(Data admissao) {
-        this.admissao = admissao;
     }
     
     
