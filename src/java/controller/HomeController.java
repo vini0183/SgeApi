@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import model.bean.Disciplina;
 import model.bean.Professor;
 import model.bean.ProfessorDisciplina;
-import model.dao.ProfessorDAO;
+import model.dao.DisciplinaDAO;
 
-@WebServlet(name = "HomeController", urlPatterns = {"/HomeController", "/professor"})
+@WebServlet(name = "HomeController", urlPatterns = {"/HomeController", "/disciplinas"})
 public class HomeController extends HttpServlet {
     
     Gson conversor = new Gson();
@@ -33,22 +33,14 @@ public class HomeController extends HttpServlet {
         
         String url = request.getServletPath();
         
-        if (url.equals("/professor")) {
-            
-            
+        if (url.equals("/disciplinas")) {
             
             response.setContentType("application/JSON");
             response.setCharacterEncoding("UTF-8");
             
-            Map<String, List<Professor>> res = new HashMap<String, List<Professor>>();
-            Map<String, List<ProfessorDisciplina>> ress = new HashMap<String, List<ProfessorDisciplina>>();
-            Map<String, List<Disciplina>> resss = new HashMap<String, List<Disciplina>>();
+            Map<String, List<Disciplina>> res = new HashMap<String, List<Disciplina>>();
             
-            List<Professor> ler = new ArrayList();
-            ProfessorDAO dao = new ProfessorDAO();
-            ler = dao.ler();
-            
-            res.put("Professor", ler);
+            res.put("disciplinas", new DisciplinaDAO().ler());
             
             PrintWriter out =  response.getWriter();
             out.write(conversor.toJson(res));

@@ -4,8 +4,8 @@ import javafx.scene.chart.PieChart.Data;
 
 public class Professor {
     
-    public int id_professor;
-    public String nome,sobrenome,senha,cpf,imagens;
+    private int id_professor;
+    private String nome,sobrenome,senha,cpf,imagens;
 
     public Professor() {
     }

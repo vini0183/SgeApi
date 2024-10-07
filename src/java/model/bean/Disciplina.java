@@ -2,17 +2,17 @@ package model.bean;
 
 public class Disciplina {
     
-    public int id_disciplina;
-    public String nome_disciplina;
-    public int fk_id_area;
+    private int id_disciplina;
+    private String nome_disciplina;
+    private Area area;
 
     public Disciplina() {
     }
 
-    public Disciplina(int id_disciplina, String nome_disciplina, int fk_id_area) {
+    public Disciplina(int id_disciplina, String nome_disciplina, Area area) {
         this.id_disciplina = id_disciplina;
         this.nome_disciplina = nome_disciplina;
-        this.fk_id_area = fk_id_area;
+        this.area = area;
     }
 
     public int getId_disciplina() {
@@ -31,13 +31,15 @@ public class Disciplina {
         this.nome_disciplina = nome_disciplina;
     }
 
-    public int getFk_id_area() {
-        return fk_id_area;
+    public Area getArea() {
+        return area;
     }
 
-    public void setFk_id_area(int fk_id_area) {
-        this.fk_id_area = fk_id_area;
+    public void setArea(Area area) {
+        this.area = area;
     }
+
+    
     
     
     

@@ -2,8 +2,8 @@ package model.bean;
 
 public class ProfessorDisciplina {
     
-    public int fk_id_professor;
-    public int fk_id_disciplina;
+    private int fk_id_professor;
+    private int fk_id_disciplina;
 
     public ProfessorDisciplina() {
     }
