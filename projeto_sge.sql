@@ -167,7 +167,7 @@ CREATE TABLE `professor` (
   `sobrenome` varchar(100) NOT NULL,
   `senha` varchar(45) NOT NULL,
   `cpf` varchar(11) NOT NULL,
-  `imagem` varchar(255) DEFAULT NULL,
+  `imagem` varchar(255) NOT NULL,
   PRIMARY KEY (`id_professor`),
   UNIQUE KEY `cpf` (`cpf`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
@@ -285,4 +285,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-08 14:06:47
+-- Dump completed on 2024-10-08 17:20:06

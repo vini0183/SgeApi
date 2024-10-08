@@ -1,22 +1,25 @@
 package model.bean;
 
+import java.util.List;
 import javafx.scene.chart.PieChart.Data;
 
 public class Professor {
     
     private int id_professor;
-    private String nome,sobrenome,senha,cpf,imagens;
+    private String nome,sobrenome,senha,cpf,imagem;
+    private List<Disciplina> disciplina;
 
     public Professor() {
     }
 
-    public Professor(int id_professor, String nome, String sobrenome, String senha, String cpf, String imagens) {
+    public Professor(int id_professor, String nome, String sobrenome, String senha, String cpf, String imagem, List<Disciplina> disciplina) {
         this.id_professor = id_professor;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.senha = senha;
         this.cpf = cpf;
-        this.imagens = imagens;
+        this.imagem = imagem;
+        this.disciplina = disciplina;
     }
 
     public int getId_professor() {
@@ -59,13 +62,22 @@ public class Professor {
         this.cpf = cpf;
     }
 
-    public String getImagens() {
-        return imagens;
+    public String getImagem() {
+        return imagem;
     }
 
-    public void setImagens(String imagens) {
-        this.imagens = imagens;
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
+
+    public List<Disciplina> getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(List<Disciplina> disciplina) {
+        this.disciplina = disciplina;
+    }
+    
     
     
     
