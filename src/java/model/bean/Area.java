@@ -11,25 +11,25 @@ package model.bean;
  */
 public class Area {
     
-    private int id;
+    private int id_area;
     private String nome;
     private String descricao;
 
     public Area() {
     }
 
-    public Area(int id, String nome, String descricao) {
-        this.id = id;
+    public Area(int id_area, String nome, String descricao) {
+        this.id_area = id_area;
         this.nome = nome;
         this.descricao = descricao;
     }
 
-    public int getId() {
-        return id;
+    public int getId_area() {
+        return id_area;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_area(int id_area) {
+        this.id_area = id_area;
     }
 
     public String getNome() {
@@ -47,7 +47,7 @@ public class Area {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
+
     
     
 }

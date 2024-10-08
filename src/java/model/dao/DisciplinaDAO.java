@@ -19,7 +19,7 @@ public class DisciplinaDAO {
         
         try {
             Connection conexao = Conexao.conectar();
-            PreparedStatement stmt = conexao.prepareStatement("select dis.id_disciplina, dis.nome_disciplina, area.id as id_area, area.nome as nome_area, area.descricao as descricao_area from disciplina as dis inner join area on dis.fk_id_area = area.id");
+            PreparedStatement stmt = conexao.prepareStatement("SELECT dis.id_disciplina, dis.nome_disciplina, area.id_area, area.nome AS nome_area, area.descricao AS descricao_area FROM disciplina AS dis INNER JOIN area ON dis.fk_id_area = area.id_area");
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()) {
@@ -31,9 +31,9 @@ public class DisciplinaDAO {
                 
                 Area area = new Area();
                 
-                area.setId(rs.getInt("id_area"));
+                area.setId_area(rs.getInt("id_area"));
                 area.setNome(rs.getString("nome_area"));
-                area.setDescricao(rs.getString("discricao_area"));
+                area.setDescricao(rs.getString("descricao_area"));
                 
                 dis.setArea(area);
                 
