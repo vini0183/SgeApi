@@ -60,25 +60,25 @@ public class DisciplinaDAO {
                     + "from disciplina as dis\n"
                     + "inner join area as ar on ar.id_area = fk_id_area\n"
                     + "where dis.id_disciplina = ?");
-            
+
             stmt.setInt(1, id);
-            
+
             rs = stmt.executeQuery();
-            
-            if(rs.next()) {
+
+            if (rs.next()) {
                 dis.setId_disciplina(rs.getInt("id_disciplina"));
                 dis.setNome_disciplina(rs.getString("nome_disciplina"));
-                
+
                 Area area = new Area();
-                
+
                 area.setId_area(rs.getInt("id_area"));
                 area.setNome(rs.getString("area"));
                 area.setDescricao(rs.getString("descricao_area"));
-                
+
                 dis.setArea(area);
-                
+
             }
-            
+
             rs.close();
             stmt.close();
             conexao.close();
@@ -88,6 +88,46 @@ public class DisciplinaDAO {
         }
 
         return dis;
+    }
+
+    public List<Disciplina> lerDisciplinaProfessor(int id_disciplina) {
+        List<Disciplina> lista = new ArrayList();
+
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = conexao.prepareStatement("select d.id_disciplina, d.nome_disciplina, \n"
+                    + "a.id_area, a.nome, a.descricao \n"
+                    + "from disciplina as d\n"
+                    + "inner join professor_disciplina as pd on pd.fk_id_disciplina = d.id_disciplina\n"
+                    + "inner join area as a on a.id_area = d.fk_id_area\n"
+                    + "where pd.fk_id_professor = ?");
+            
+            stmt.setInt(1, id_disciplina);
+            
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                Disciplina dis = new Disciplina();
+
+                dis.setId_disciplina(rs.getInt("id_disciplina"));
+                dis.setNome_disciplina(rs.getString("nome_disciplina"));
+
+                Area area = new Area();
+
+                area.setId_area(rs.getInt("id_area"));
+                area.setNome(rs.getString("nome"));
+                area.setDescricao(rs.getString("descricao"));
+
+                dis.setArea(area);
+
+                lista.add(dis);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
     }
 
 }
